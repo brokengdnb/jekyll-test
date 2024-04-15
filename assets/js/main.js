@@ -33,10 +33,12 @@
     xhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
             let repos = JSON.parse(this.responseText);
-            document.write("<h3>k3llydev github repositories w/last updated</h3>");
-            repos.forEach((repo) => {
-                document.write(`<code>${repo.name}</code>: <em>${new Date(repo.updated_at)}</em><br>`);
+
+            var thisPage = repos.filter(function (el) {
+                return el.name === "jekyll-test";
             });
+            document.getElementById('buildInfo').innerText = ${ new Date(thisPage.updated_at) };
+           
         }
     };
     xhttp.open("GET", "https://api.github.com/users/brokengdnb/repos", true);
