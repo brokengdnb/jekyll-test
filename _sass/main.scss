@@ -141,13 +141,14 @@ $on-widescreen: 1152px;
         transition: height .5s;
         overflow: hidden;
 
-        display: flex;
-        flex-direction: column;
-        flex-wrap: nowrap;
-        justify-content: space-between;
-        align-items: center;
-        align-content: center;
-        
+        .skill-card__vertical {
+            display: flex;
+            flex-direction: column;
+            flex-wrap: nowrap;
+            justify-content: space-between;
+            align-items: center;
+            align-content: center;
+        }
 
         .skill-card__title {
             font-size: 1.4em;
