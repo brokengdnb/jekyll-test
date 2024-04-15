@@ -64,12 +64,7 @@ $on-widescreen: 1152px;
 
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,600');
 
-.skill-card-wrap {
-    font-family: "Open Sans", sans-serif;
-    font-size: 16px;
-    font-weight: 400;
-    color: #000;
-}
+
 
 .skill-card {
     transform: translateY(-50%) translateX(-50%);
@@ -78,6 +73,10 @@ $on-widescreen: 1152px;
     background-color: #FFF;
     box-shadow: 0 1px 3px rgba(0, 0, 0, .12), 0 1px 2px rgba(0, 0, 0, .24);
     cursor: pointer;
+    font-family: "Open Sans", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    color: #000;
 
     &:hover {
         box-shadow: 0 14px 28px rgba(0, 0, 0, .25), 0 10px 10px rgba(0, 0, 0, .22);
