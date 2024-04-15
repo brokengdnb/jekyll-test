@@ -71,10 +71,11 @@ $on-widescreen: 1152px;
     justify-content: space-around;
     align-items: center;
     align-content: center;
+    overflow-y: auto;
 }
 
 .skill-card {
-    transform: translateY(-50%) translateX(-50%);
+    margin-top: 30px;
     padding: 20px;
     width: 15em;
     background-color: #FFF;
