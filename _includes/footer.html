@@ -1,6 +1,10 @@
 <footer class="footer">
+    <small class="footer_copyright">
+        <br /><span id="buildInfo"></span>
+        <br /><span id="licenseInfo"></span>
+    </small>
     <span class="footer_item">&copy; {{ site.time | date: "%Y" }}</span>
-    <a class="menu-link rss" href="/feed.xml">
+    <a class="menu-link rss" href="/feed.xml" style="margin-left: 8px;margin-right:8px">
         <svg xmlns="http://www.w3.org/2000/svg"
              width="17"
              height="17"
@@ -13,17 +17,6 @@
         </svg>
     </a>
     <a class="footer_item" href="/feed.xml">rss</a>
-    <small class="footer_copyright">
-        <!-- Klisé Theme: https://github.com/piharpi/jekyll-klise -->
-        Using adjusted <a href="https://github.com/piharpi/jekyll-klise"
-                          target="_blank"
-                          rel="noreferrer noopener">klisé</a>
-        theme on
-        <a href="https://jekyllrb.com" target="_blank" rel="noreferrer noopener">Jekyll</a> framework
-        <br /><span id="buildInfo"></span>
-        <br /><span id="licenseInfo"></span>
-    </small>
-   
 </footer>
 <script src="/assets/js/main.js" defer="defer"></script>
 {%- if site.google_analytics -%}
