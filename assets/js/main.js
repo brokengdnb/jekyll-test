@@ -37,7 +37,7 @@
             var thisPage = repos.filter(function (el) {
                 return el.name === "jekyll-test";
             });
-            document.getElementById('buildInfo').innerText = ${ new Date(thisPage.updated_at) };
+            document.getElementById('buildInfo').innerText = new Date(thisPage.updated_at).toLocaleString();
            
         }
     };
