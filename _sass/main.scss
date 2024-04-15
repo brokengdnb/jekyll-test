@@ -72,10 +72,11 @@ $on-widescreen: 1152px;
     align-items: center;
     align-content: center;
     overflow-y: auto;
+    margin-bottom: 60px;
+    margin-top: 60px;
 }
 
 .skill-card {
-    margin-top: 30px;
     padding: 20px;
     width: 15em;
     background-color: #FFF;
