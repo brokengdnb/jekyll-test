@@ -41,8 +41,8 @@
     xhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
             let repos = JSON.parse(this.responseText);
-            console.log(filterRepo(repos));
-            document.getElementById('buildInfo').innerText = filterRepo(repos).updated_at;
+            console.log(filterRepo(repos)[0])
+            document.getElementById('buildInfo').innerText = new Date(filterRepo(repos)[0].updated_at).toLocaleString();
         }
     };
     xhttp.open("GET", "https://api.github.com/users/brokengdnb/repos", true);
