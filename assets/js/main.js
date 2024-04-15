@@ -30,9 +30,10 @@
   });
 
   const filterRepo = function (repos) { // 1
-      return repos.filter(function (el) {
+      var result = repos.filter(function (el) {
           return el.name === "jekyll-test";
       })
+      return result;
 
   }
 
@@ -40,6 +41,7 @@
     xhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
             let repos = JSON.parse(this.responseText);
+            console.log(filterRepo(repos));
             document.getElementById('buildInfo').innerText = filterRepo(repos).updated_at;
         }
     };
