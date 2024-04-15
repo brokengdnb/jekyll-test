@@ -65,7 +65,6 @@ $on-widescreen: 1152px;
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,600');
 
 
-
 .skill-card {
     transform: translateY(-50%) translateX(-50%);
     padding: 20px;
@@ -73,19 +72,17 @@ $on-widescreen: 1152px;
     background-color: #FFF;
     box-shadow: 0 1px 3px rgba(0, 0, 0, .12), 0 1px 2px rgba(0, 0, 0, .24);
     cursor: pointer;
-    font-family: "Open Sans", sans-serif;
-    font-size: 16px;
-    font-weight: 400;
-    color: #000;
+    transition: box-shadow ease 0.5s;
 
     &:hover {
         box-shadow: 0 14px 28px rgba(0, 0, 0, .25), 0 10px 10px rgba(0, 0, 0, .22);
+
 
         .skill-card__header {
             height: 40px;
 
             .skill-card__icon {
-                transform: translateX(-50%) translateY(-50%) scale(2);
+                transform: translateX(-50%) translateY(-50%) scale(1.5);
             }
         }
 
@@ -115,10 +112,6 @@ $on-widescreen: 1152px;
         margin: -20px -20px 20px -20px;
         transition: height .5s;
         overflow: hidden;
-        font-family: "Open Sans", sans-serif;
-        font-size: 16px;
-        font-weight: 400;
-        color: #000;
 
         .skill-card__icon {
             position: absolute;
@@ -136,46 +129,27 @@ $on-widescreen: 1152px;
         height: 40px;
         transition: height .5s;
         overflow: hidden;
-        font-family: "Open Sans", sans-serif;
-        font-size: 16px;
-        font-weight: 400;
-        color: #000;
 
         .skill-card__title {
             font-size: 1.4em;
             font-weight: 600;
             text-transform: uppercase;
-            font-family: "Open Sans", sans-serif;
-            font-size: 16px;
-            font-weight: 400;
-            color: #000;
         }
 
         .skill-card__duration {
             color: #9E9E9E;
             font-style: italic;
-            font-family: "Open Sans", sans-serif;
-            font-size: 16px;
-            font-weight: 400;
         }
 
         .skill-card__knowledge {
             margin-top: 10px;
             color: #424242;
-            font-family: "Open Sans", sans-serif;
-            font-size: 16px;
-            font-weight: 400;
-            color: #000;
 
             li {
                 margin-top: 5px;
                 transition-duration: 0;
                 transition-delay: .5s;
                 transform: translateX(-100%);
-                font-family: "Open Sans", sans-serif;
-                font-size: 16px;
-                font-weight: 400;
-                color: #000;
             }
         }
     }
