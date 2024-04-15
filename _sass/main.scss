@@ -134,16 +134,16 @@ $on-widescreen: 1152px;
             font-size: 1.4em;
             font-weight: 600;
             font-family: "Open Sans", sans-serif;
-            font-size: 16px;
+            font-size: 24px;
             color: #000;
             text-transform: uppercase;
-            margin-top: 0;
+            margin-top: -10px;
             margin-bottom: 0
         }
 
         .skill-card__duration {
             color: #9E9E9E;
-            font-style: italic;
+            /*font-style: italic;*/
         }
 
         .skill-card__knowledge {
