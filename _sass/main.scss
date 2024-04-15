@@ -72,7 +72,6 @@ $on-widescreen: 1152px;
 }
 
 .skill-card {
-
     transform: translateY(-50%) translateX(-50%);
     padding: 20px;
     width: 15em;
@@ -134,6 +133,10 @@ $on-widescreen: 1152px;
         height: 40px;
         transition: height .5s;
         overflow: hidden;
+        font-family: "Open Sans", sans-serif;
+        font-size: 16px;
+        font-weight: 400;
+        color: #000;
 
         .skill-card__title {
             font-size: 1.4em;
