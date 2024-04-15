@@ -145,6 +145,10 @@ $on-widescreen: 1152px;
             font-size: 1.4em;
             font-weight: 600;
             text-transform: uppercase;
+            font-family: "Open Sans", sans-serif;
+            font-size: 16px;
+            font-weight: 400;
+            color: #000;
         }
 
         .skill-card__duration {
@@ -155,12 +159,20 @@ $on-widescreen: 1152px;
         .skill-card__knowledge {
             margin-top: 10px;
             color: #424242;
+            font-family: "Open Sans", sans-serif;
+            font-size: 16px;
+            font-weight: 400;
+            color: #000;
 
             li {
                 margin-top: 5px;
                 transition-duration: 0;
                 transition-delay: .5s;
                 transform: translateX(-100%);
+                font-family: "Open Sans", sans-serif;
+                font-size: 16px;
+                font-weight: 400;
+                color: #000;
             }
         }
     }
