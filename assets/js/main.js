@@ -43,7 +43,7 @@
             let repos = JSON.parse(this.responseText);
             console.log(filterRepo(repos)[0])
             document.getElementById('licenseInfo').innerText = "under " + filterRepo(repos)[0].license.name;
-            document.getElementById('buildInfo').innerText = "build & deployed at " + new Date(filterRepo(repos)[0].pushed_at).toLocaleString();
+            document.getElementById('buildInfo').innerText = "build at " + new Date(filterRepo(repos)[0].pushed_at).toLocaleString();
         }
     };
     xhttp.open("GET", "https://api.github.com/users/brokengdnb/repos", true);
