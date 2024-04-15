@@ -64,6 +64,14 @@ $on-widescreen: 1152px;
 
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,600');
 
+.flex-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    align-items: center;
+    align-content: center;
+}
 
 .skill-card {
     transform: translateY(-50%) translateX(-50%);
