@@ -1,22 +1,29 @@
 <footer class="footer" data-ng-controller="footerCtrl">
     <small class="footer_copyright">
-        <span>build [[ buildAt ]]</span>
-        <br /><span>under [[ license ]]</span>
-        
+        <span class="angular-load angular-loaded">
+            deployed [[ buildAt ]]<br/>
+            under [[ license ]]<br/>
+        </span>
+
+        <div layout="row" layout-align="center">
+            <span class="footer_item">&copy; {{ site.time | date: "%Y" }}</span>
+            <div style="margin-left: 4px;padding-top:3px">
+                <a class="menu-link rss" href="/feed.xml" >
+                    <svg xmlns="http://www.w3.org/2000/svg"
+                         width="17"
+                         height="17"
+                         viewBox="0 0 512 512"
+                         fill="#ED812E">
+                        <title>RSS</title>
+                        <path d="M108.56,342.78a60.34,60.34,0,1,0,60.56,60.44A60.63,60.63,0,0,0,108.56,342.78Z" />
+                        <path d="M48,186.67v86.55c52,0,101.94,15.39,138.67,52.11s52,86.56,52,138.67h86.66C325.33,312.44,199.67,186.67,48,186.67Z" />
+                        <path d="M48,48v86.56c185.25,0,329.22,144.08,329.22,329.44H464C464,234.66,277.67,48,48,48Z" />
+                    </svg>
+                </a>
+            </div>
+        </div>
+
     </small>
-    <span class="footer_item">&copy; {{ site.time | date: "%Y" }}</span>
-    <a class="menu-link rss" href="/feed.xml" style="margin-left: 8px;margin-right:8px">
-        <svg xmlns="http://www.w3.org/2000/svg"
-             width="17"
-             height="17"
-             viewBox="0 0 512 512"
-             fill="#ED812E">
-            <title>RSS</title>
-            <path d="M108.56,342.78a60.34,60.34,0,1,0,60.56,60.44A60.63,60.63,0,0,0,108.56,342.78Z" />
-            <path d="M48,186.67v86.55c52,0,101.94,15.39,138.67,52.11s52,86.56,52,138.67h86.66C325.33,312.44,199.67,186.67,48,186.67Z" />
-            <path d="M48,48v86.56c185.25,0,329.22,144.08,329.22,329.44H464C464,234.66,277.67,48,48,48Z" />
-        </svg>
-    </a>
 </footer>
 <script src="/assets/js/main.js" defer="defer"></script>
 
@@ -24,13 +31,15 @@
 <script type="text/javascript" src="/assets/js/angular-aria.min.js"></script>
 <script type="text/javascript" src="/assets/js/angular-animate.min.js"></script>
 <script type="text/javascript" src="/assets/js/angular-messages.min.js"></script>
+<script type="text/javascript" src="/assets/js/angular-load.min.js"></script>
 <script type="text/javascript" src="/assets/js/angular-material.min.js"></script>
+<script type="text/javascript" src="/assets/js/loading-bar.min.js"></script>
 
 <script type="text/javascript" src="/assets/js/moment.min.js"></script>
 <script type="text/javascript" src="/assets/js/angular-moment.min.js"></script>
 
 <script>
-    let myApp = angular.module('myApp', ['ngMaterial', 'ngMessages', 'angularMoment'], function ($interpolateProvider) {
+    let myApp = angular.module('myApp', ['ngMaterial', 'ngMessages', 'angularMoment', 'ngLoad', 'angular-loading-bar'], function ($interpolateProvider) {
         $interpolateProvider.startSymbol('[[');
         $interpolateProvider.endSymbol(']]');
     })
@@ -46,7 +55,29 @@
             }, function (error) {
                 console.log(error);
             });
-    }]);
+        angular.element(function () {
+            let elems = document.getElementsByClassName("angular-loaded");
+
+            for (let i = 0; i < elems.length; i++) {
+                elems[i].classList.remove("angular-loaded");
+            }
+        });
+    }]).config(['cfpLoadingBarProvider', function(cfpLoadingBarProvider) {
+        cfpLoadingBarProvider.latencyThreshold = 100;
+    }]).directive('focusMe', function($timeout) {
+        return {
+            scope: { trigger: '@focusMe' },
+            link: function(scope, element) {
+                scope.$watch('trigger', function(value) {
+                    if(value === "true") {
+                        $timeout(function() {
+                            element[0].focus();
+                        });
+                    }
+                });
+            }
+        };
+    });
 </script>
 {%- if site.google_analytics -%}
 <!-- Google tag (gtag.js) -->

@@ -7,7 +7,7 @@ layout: compress
 
 {% include header.html %}
 
-<body data-theme="{{ site.mode }}" class="notransition" >
+<body data-theme="{{ site.mode }}" class="notransition" data-ng-controller="archiveCtrl">
 
     <script>
     const body = document.body;
@@ -30,11 +30,20 @@ layout: compress
     </script>
 
     {% include navbar.html %}
-    <div class="wrapper">
+    <div id="magic" class="wrapper angular-load angular-loaded">
     <main class="page-content" aria-label="Content" >
         {% include anchor_headings.html html=content anchorClass="anchor-head" beforeHeading=true h_min=4 h_max=4 %}
     </main>
     {% include footer.html %}
     </div>
+
+    <script>
+        myApp.controller('archiveCtrl', ['$scope', 'moment', function ($scope) {
+            $scope.shouldBeOpen = true;
+            angular.element(function () {
+                document.getElementById("magic").classList.remove("angular-loaded");
+            });
+        }]);
+    </script>
 </body>
 </html>

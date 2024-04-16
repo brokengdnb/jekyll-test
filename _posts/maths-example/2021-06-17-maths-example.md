@@ -13,6 +13,7 @@ Any page needing maths should start with the frontmatter:
 usemathjax: true
 {% endhighlight %}
 
+
 $$ 
 \begin{align*}
 y = y(x,t) &= A e^{i\theta} \\

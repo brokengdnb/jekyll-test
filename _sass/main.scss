@@ -64,6 +64,7 @@ $on-widescreen: 1152px;
 
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,600');
 @import url('/assets/css/angular-material.css');
+@import url('/assets/css/loading-bar.min.css');
 
 .flex-container {
     display: flex;
@@ -77,6 +78,12 @@ $on-widescreen: 1152px;
     margin-top: 30px;
 }
 
+.angular-load {
+    transition: opacity ease 0.5s;
+}
+.angular-loaded {
+    opacity:0;
+}
 .skill-card {
     padding: 20px;
     width: 15em;
@@ -181,159 +188,3 @@ $on-widescreen: 1152px;
     }
 }
  
-/* 
-    Material Buttons:
-        https://codepen.io/graphilla/pen/eYVGzeQ 
-
-*/
-
-:root {
-    --shadow-color: 0deg 0% 40%;
-    --shadow-elevation-low: 0.2px 0.3px 0.4px hsl(var(--shadow-color) / 0.34), 0.3px 0.8px 1px -1px hsl(var(--shadow-color) / 0.34), 0.7px 3px 2px -1px hsl(var(--shadow-color) / 0.34);
-    --shadow-elevation-medium: 0.2px 0.3px 0.4px hsl(var(--shadow-color) / 0.36), 0.6px 1.1px 1.4px -0.8px hsl(var(--shadow-color) / 0.36), 1.4px 2.8px 3.5px -1.7px hsl(var(--shadow-color) / 0.36), 3.4px 6.9px 8.7px -2.5px hsl(var(--shadow-color) / 0.36);
-    --accent: rgba(98, 0, 238, 1);
-    --accent-contrast: rgba(255,255,255,1);
-    --accent-tone-1: rgba(98, 0, 238, .1);
-    --accent-tone-2: rgba(98, 0, 238, .2);
-    --accent-tone-3: rgba(98, 0, 238, .3);
-    --accent-tone-4: rgba(98, 0, 238, .4);
-    --accent-tone-5: rgba(98, 0, 238, .5);
-    --accent-tone-6: rgba(98, 0, 238, .6);
-    --accent-tone-7: rgba(98, 0, 238, .7);
-    --accent-tone-8: rgba(98, 0, 238, .8);
-    --accent-tone-9: rgba(98, 0, 238, .9);
-}
-
-.material-btn {
-    position: relative;
-    display: inline-flex;
-    align-items: center;
-    min-height: 44px;
-    min-width: 44px;
-    padding: 0 26px;
-    margin: 5px;
-    border-radius: 22px;
-    background: none;
-    color: var(--accent);
-    overflow: hidden;
-    cursor: pointer;
-    transition: all .15s ease;
-    border: 1px solid transparent;
-    font-size: 1rem;
-    line-height: 1;
-}
-
-.material-btn:hover,
-.material-btn:focus {
-    background-color: var(--accent-tone-1);
-}
-
-.material-btn::before {
-    background-color: var(--accent);
-}
-
-.material-btn:focus-visible {
-    outline: 4px solid blue;
-    outline-offset: 3px;
-}
-
-.material-btn + .material-btn {
-    margin-left: 10px;
-}
-
-/* 
-	Outline
-*/
-
-.outline {
-    border-color: var(--accent);
-}
-
-/* 
-	Filled
-*/
-
-.filled {
-    background: var(--accent);
-    color: var(--accent-contrast);
-}
-
-.filled:hover,
-.filled:focus {
-    background-color: var(--accent-tone-8);
-}
-
-.filled::before {
-    background-color: var(--accent-contrast);
-}
-
-/* 
-	Tonal
-*/
-
-.tonal {
-    background-color: var(--accent-tone-1);
-    color: var(--accent);
-}
-
-.tonal::before {
-    background-color: var(--accent);
-}
-
-.tonal:hover,
-.tonal:focus {
-    background-color: var(--accent-tone-2);
-}
-
-/* 
-	Raised
-*/
-
-.raised {
-    box-shadow: var(--shadow-elevation-low);
-}
-
-.raised:hover,
-.raised:focus {
-    box-shadow: var(--shadow-elevation-medium);
-}
-
-.raised:active {
-    box-shadow: none;
-}
-
-/* 
-	Icon
-*/
-
-.material-icon {
-    padding: 0;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.25rem;
-}
-
-/* 
-	Ripple effect
-*/
-
-.ripple::before {
-    content: '';
-    position: absolute;
-    left: var(--x);
-    top: var(--y);
-    width: 200%;
-    border-radius: 50%;
-    opacity: 0.25;
-    aspect-ratio: 1;
-    transform: translate(-50%, -50%) scale(0);
-    transform-origin: center center;
-    animation: ripples .45s ease-out;
-}
-
-@keyframes ripples {
-    to {
-        transform: translate(-50%, -50%) scale(1);
-        opacity: 0;
-    }
-}

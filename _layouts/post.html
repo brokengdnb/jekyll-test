@@ -3,11 +3,11 @@ layout: compress
 ---
 
 <!DOCTYPE html>
-<html lang="{{ page.lang | default: site.lang | default: "en" }}" data-ng-app="myApp">
+<html lang="{{ page.lang | default: site.lang | default: 'en' }}" data-ng-app="myApp">
 
 {% include header.html %}
 
-<body data-theme="{{ site.mode }}" class="notransition" data-ng-controller="FooCtrl">
+<body data-theme="{{ site.mode }}" class="notransition" data-ng-controller="postCtrl">
 
   <script>
     const body = document.body;
@@ -29,28 +29,19 @@ layout: compress
   </script>
 
   {% include navbar.html %}
-  <div class="wrapper post">
+  <div id="magic" class="wrapper post angular-load angular-loaded">
     <main class="page-content" aria-label="Content">
       <article itemscope itemtype="https://schema.org/BlogPosting">
-
         <header class="header">
-          {% if page.tags and page.tags != empty %}
-          <div class="tags">
-            {% assign tags = page.tags %}
-            <span itemprop="keywords">
-              {% for tag in tags %}
-              <a class="tag"
-                href="/tags/#{{tag | downcase | slugify}}">{{tag | upcase }}</a>{% unless forloop.last %},{% endunless %}
-              {% endfor %}
-            </span>
-          </div>
-          {% endif %}
+
           <h1 class="header-title" itemprop="headline">{{ page.title | escape }}</h1>
           {% if page.date %}
-          <div class="post-meta">
-              <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
-                  [[ parsedDateTime ]]
-              </time>
+          <div class="post-meta" layout="row" layout-align="space-around center">
+              <span
+                      datetime="{{ page.date | date_to_xmlschema }}"
+                      itemprop="datePublished">
+                [[ parsedDateTime ]]
+              </span>
             <span hidden itemprop="author" itemscope itemtype="https://schema.org/Person">
               <span itemprop="name">{{ site.author.name }}</span>
             </span>
@@ -60,10 +51,23 @@ layout: compress
             <span hidden itemprop="publisher" itemtype="Person">{{ site.author.name }}</span>
             <span hidden itemprop="image">{{ page.image }}</span>
             <span hidden itemprop="mainEntityOfPage">{{ page.excerpt }}</span>
+
+            {% if page.tags and page.tags != empty %}
+            <div class="tags">
+              {% assign tags = page.tags %}
+              <span itemprop="keywords">
+              {% for tag in tags %}
+              <a class="tag"
+                 href="/tags/#{{tag | downcase | slugify}}">{{tag | upcase }}</a>{% unless forloop.last %},{% endunless %}
+              {% endfor %}
+            </span>
+            </div>
+            {% endif %}
+
           </div>
           {% endif %}
         </header>
-
+        <hr/>
         <div class="page-content" itemprop="articleBody">
           {% include anchor_headings.html html=content anchorClass="anchor-head" beforeHeading=true h_min=1 h_max=4 %}
           {% if page.tweet %}
@@ -80,21 +84,21 @@ layout: compress
 
     </main>
 
-    {% if page.modified %}
-      <small class="post-updated-at">updated_at {{page.modified | date: "%d-%m-%Y"}}</small>
-    {% endif %}
-    {% if page.next or page.previous %}
+
+    <!--{% if page.next or page.previous %}
       {% include navigation.html %}
-    {% endif %}
+    {% endif %}-->
 
     {% include footer.html %}
   </div>
 
     <script>
-        myApp.controller('FooCtrl', ['$scope', 'moment', function ($scope, moment) {
+        myApp.controller('postCtrl', ['$scope', 'moment', function ($scope, moment) {
             $scope.parsedDateTime = moment('{{page.date | date_to_xmlschema}}').fromNow();
-         }]);
-
+            angular.element(function () {
+                document.getElementById("magic").classList.remove("angular-loaded");
+            });
+        }]);
     </script>
 </body>
 

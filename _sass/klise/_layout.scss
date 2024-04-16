@@ -328,16 +328,16 @@
 
 .search-article {
   position: relative;
-  margin-bottom: 50px;
+
   margin-top: 36px;
 
-  label[for="search-input"] {
+  /*label[for="search-input"] {
     position: relative;
     top: 6px;
     left: 9px;
-  }
+  }*/
 
-  input[type="search"] {
+  /*input[type="search"] {
     top: 0;
     left: 0;
     border: 0;
@@ -359,7 +359,7 @@
     &::-webkit-search-results-decoration {
       display: none;
     }
-  }
+  }*/
 }
 
 #search-results {
