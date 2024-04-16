@@ -1,7 +1,12 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\assets",
+    "\\assets\\js",
+    "\\_includes",
+    "\\_layouts",
+    "\\_sass",
+    "\\_sass\\klise"
   ],
-  "SelectedNode": "\\C:\\Users\\jdr101915\\Source\\Repos\\jekyll-test",
   "PreviewInSolutionExplorer": false
 }
