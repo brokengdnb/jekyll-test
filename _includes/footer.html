@@ -18,6 +18,23 @@
     </a>
 </footer>
 <script src="/assets/js/main.js" defer="defer"></script>
+
+<script type="text/javascript" src="/assets/js/angular.min.js"></script>
+<script type="text/javascript" src="/assets/js/angular-aria.min.js"></script>
+<script type="text/javascript" src="/assets/js/angular-animate.min.js"></script>
+<script type="text/javascript" src="/assets/js/angular-messages.min.js"></script>
+<script type="text/javascript" src="/assets/js/angular-material.min.js"></script>
+
+<script>
+
+    let myApp = angular.module('myApp', ['ngMaterial', 'ngMessages'], function ($interpolateProvider) {
+        $interpolateProvider.startSymbol('[[');
+        $interpolateProvider.endSymbol(']]');
+    });
+
+
+</script>
+
 {%- if site.google_analytics -%}
 <!-- Google tag (gtag.js) -->
 <script async
@@ -41,21 +58,4 @@
         json: '/assets/search.json',
     });
 </script>
-
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.3/angular.min.js"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-aria/1.8.3/angular-aria.min.js"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-animate/1.8.3/angular-animate.min.js"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-messages/1.8.3/angular-messages.min.js"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-material/1.2.5/angular-material.min.js"></script>
-
-<script>
-
-    let myApp = angular.module('myApp', ['ngMaterial', 'ngMessages'], function ($interpolateProvider) {
-        $interpolateProvider.startSymbol('[[');
-        $interpolateProvider.endSymbol(']]');
-    });
-
-
-</script>
-
 {%- endif -%}
