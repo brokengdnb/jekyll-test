@@ -49,7 +49,7 @@ layout: compress
           {% if page.date %}
           <div class="post-meta">
               <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
-                  {{ page.date }} [[ exampleDate ]]
+                  [[ {{ page.date }} | amDifference  ]]
               </time>
             <span hidden itemprop="author" itemscope itemtype="https://schema.org/Person">
               <span itemprop="name">{{ site.author.name }}</span>
