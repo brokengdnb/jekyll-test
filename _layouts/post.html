@@ -92,7 +92,7 @@ layout: compress
 
     <script>
         myApp.controller('FooCtrl', ['$scope', 'moment', function ($scope, moment) {
-            $scope.parsedDateTime = moment({{page.date}}).fromNow();
+            $scope.parsedDateTime = moment('{{page.date}}').fromNow();
          }]);
 
     </script>
