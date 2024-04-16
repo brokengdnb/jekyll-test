@@ -1,4 +1,4 @@
-<footer class="footer">
+<footer class="footer" data-ng-controller="footerCtrl">
     <small class="footer_copyright">
         <br /><span id="buildInfo"></span>
         <br /><span id="licenseInfo"></span>
@@ -35,6 +35,30 @@
         $interpolateProvider.endSymbol(']]');
     });
 
+    myApp.controller('footerCtrl', ['$scope', 'moment', '$http', function ($scope, moment, $http) {
+        $scope.buildTime = moment().fromNow();
+
+        const filterRepo = function (repos) {
+            var result = repos.filter(function (el) {
+                return el.name === "jekyll-test";
+            })
+            return result;
+
+        }
+
+        let repoData = $http.get('https://api.github.com/users/brokengdnb/repos', {}).
+            then(function (response) {
+                // this callback will be called asynchronously
+                // when the response is available
+                console.log(response);
+                console.log(filterRepo(repos)[0])
+            }, function (response) {
+                // called asynchronously if an error occurs
+                // or server returns response with an error status.
+                console.log(response);
+            });
+
+    }]);
 
 </script>
 

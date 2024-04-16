@@ -29,7 +29,7 @@
       : area.classList.remove("blurry");
   });
 
-  const filterRepo = function (repos) { // 1
+  const filterRepo = function (repos) {
       var result = repos.filter(function (el) {
           return el.name === "jekyll-test";
       })
