@@ -7,7 +7,7 @@ layout: compress
 
 {% include header.html %}
 
-<body data-theme="{{ site.mode }}" class="notransition" data-ng-controller="pageCtrl">
+<body data-theme="{{ site.mode }}" class="notransition" data-ng-controller="FooCtrl">
 
   <script>
     const body = document.body;
@@ -91,7 +91,7 @@ layout: compress
   </div>
 
     <script>
-        myApp.controller('pageCtrl', ['$scope', 'moment', function ($scope, moment) {
+        myApp.controller('FooCtrl', ['$scope', 'moment', function ($scope, moment) {
             $scope.parsedDateTime = moment('{{page.date}}').fromNow();
          }]);
 
