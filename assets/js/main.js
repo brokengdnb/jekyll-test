@@ -36,8 +36,8 @@
       return result;
 
   }
-
-    var xhttp = new XMLHttpRequest();
+// footer dyna magic
+    let xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
             let repos = JSON.parse(this.responseText);
@@ -48,7 +48,6 @@
     };
     xhttp.open("GET", "https://api.github.com/users/brokengdnb/repos", true);
     xhttp.send();
-
 
 
 })();

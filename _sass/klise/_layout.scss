@@ -329,11 +329,12 @@
 .search-article {
   position: relative;
   margin-bottom: 50px;
+  margin-top: 36px;
 
   label[for="search-input"] {
     position: relative;
-    top: 10px;
-    left: 11px;
+    top: 6px;
+    left: 9px;
   }
 
   input[type="search"] {
