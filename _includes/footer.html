@@ -47,7 +47,7 @@
 
 <script>
     myApp.controller('footerCtrl', ['$scope', 'moment', '$http', function ($scope, moment, $http) {
-        let repoData = $http.get('https://api.github.com/users/brokengdnb/repos', {}).
+        $http.get('https://api.github.com/users/brokengdnb/repos', {}).
             then(function (response) {
                 let repo = response.data.filter(el => el.name === "jekyll-test")[0];
                 $scope.buildAt = moment(repo.pushed_at).fromNow();
@@ -62,6 +62,8 @@
                 elems[i].classList.remove("angular-loaded");
             }
         });
+    }]).config(['$locationProvider', function($locationProvider) {
+        $locationProvider.hashPrefix('');
     }]).config(['cfpLoadingBarProvider', function(cfpLoadingBarProvider) {
         cfpLoadingBarProvider.latencyThreshold = 100;
     }]).directive('focusMe', function($timeout) {

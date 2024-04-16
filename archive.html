@@ -10,14 +10,14 @@ comments: false
 
   <div class="search-article" layout="row">
     <md-input-container flex style="margin-bottom: 0">
-      <label>Search in archive</label>
+      <label>Search in archive and tags</label>
       <input type="search" id="search-input" data-ng-model="name" aria-label="Search" autocomplete="off" focus-me="[[shouldBeOpen]]">
     </md-input-container>
   </div>
 
   <div id="search-results"></div>
 
-  <div id="archive-posts" data-ng-if="!name">
+  <div id="archive-posts" data-ng-if="!name" style="padding-left: 30px;padding-right:30px">
     {%- for post in site.posts -%}
       {%- capture current_year -%}{{ post.date | date: "%Y" }}{%- endcapture -%}
       {%- unless current_year == previous_year -%}

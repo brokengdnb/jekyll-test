@@ -5,23 +5,30 @@ layout: page
 excerpt: Sorted article by tags.
 ---
 
-<div class="archive-tags">
-  <a class="tag-item" href="#">all</a>
-  {%- for tag in site.tags -%} 
-    {% capture name %}{{ tag | first }}{% endcapture %}
-    <a class="tag-item" href="#{{name}}">{{ name }}</a> 
-  {%- endfor -%}
-</div>
 
+<md-chips style="margin-top:30px">
 {%- for tag in site.tags -%}
+  {% capture name %}{{ tag | first }}{% endcapture %}
+    <md-chip style="cursor:pointer" ng-click="click('{{ name }}')">{{ name }}</md-chip>
+{%- endfor -%}
+</md-chips>
+
+<div style="padding-left: 30px;padding-right: 30px">
+  {%- for tag in site.tags -%}
   {%- capture name -%}{{ tag | first }}{%- endcapture -%}
   <h2 id="{{ name }}">{{ name | upcase }}</h2>
   {%- for post in site.tags[name] -%}
-    <article class="post-item" id="results-container">
-      <span class="post-item-date">{{ post.date | date: "%b %d, %Y" }}</span>
-      <h3 class="post-item-title">
-        <a href="{{ post.url }}">{{ post.title | escape }}</a>
-      </h3> 
-    </article>
+  <article class="post-item" id="results-container" style="padding-left: 15px">
+    <a href="{{ post.url }}">
+      <div layout="row">
+        <span class="post-item-date">{{ post.date | date: "%b %d, %Y" }}</span>
+        <h3 class="post-item-title">
+          {{ post.title | escape }}
+        </h3>
+      </div>
+
+    </a>
+  </article>
   {%- endfor -%}
-{%- endfor -%}
+  {%- endfor -%}
+</div>

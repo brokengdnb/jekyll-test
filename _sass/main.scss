@@ -66,6 +66,16 @@ $on-widescreen: 1152px;
 @import url('/assets/css/angular-material.css');
 @import url('/assets/css/loading-bar.min.css');
 
+#search-results li {
+    padding-left: 30px;
+    list-style: none;
+    a {
+        color: #434648;
+    }
+}
+md-chips.md-default-theme .md-chips, md-chips .md-chips {
+    box-shadow: 0 0px rgba(0,0,0,0.12);
+}
 .flex-container {
     display: flex;
     flex-direction: row;

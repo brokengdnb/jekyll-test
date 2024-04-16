@@ -3,11 +3,11 @@ layout: compress
 ---
 
 <!DOCTYPE html>
-<html lang="{{ page.lang | default: site.lang | default: " en " }}" data-ng-app="myApp">
+<html lang="{{ page.lang | default: site.lang | default: 'en' }}" data-ng-app="myApp">
 
 {% include header.html %}
 
-<body data-theme="{{ site.mode }}" class="notransition">
+<body data-theme="{{ site.mode }}" class="notransition" data-ng-controller="pageCtrl">
 
   <script>
     const body = document.body;
@@ -29,15 +29,24 @@ layout: compress
   </script>
 
   {% include navbar.html %}
-  <div class="wrapper">
-    <header class="header">
-      <h1 class="header-title center" itemprop="headline">{{ page.title | escape }}.</h1>
-    </header>
+  <div id="magic" class="wrapper angular-load angular-loaded">
     <main class="page-content" aria-label="Content">
       {% include anchor_headings.html html=content anchorClass="anchor-head" beforeHeading=true h_min=4 h_max=4 %}
     </main>
     {% include footer.html %}
   </div>
+  <script>
+    myApp.controller('pageCtrl', ['$scope', '$location', function ($scope) {
+
+      angular.element(function () {
+        document.getElementById("magic").classList.remove("angular-loaded");
+      });
+      $scope.click = function(data) {
+        window.location.hash = data;
+
+      };
+    }]);
+  </script>
 </body>
 
 </html>
