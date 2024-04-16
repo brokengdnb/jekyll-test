@@ -19,12 +19,10 @@
 </footer>
 <script src="/assets/js/main.js" defer="defer"></script>
 {%- if site.google_analytics -%}
-  <!-- Google tag (gtag.js) -->
-  <script
-  async
-  src="https://www.googletagmanager.com/gtag/js?id={{ site.google_analytics }}"
-  ></script>
-  <script>
+<!-- Google tag (gtag.js) -->
+<script async
+        src="https://www.googletagmanager.com/gtag/js?id={{ site.google_analytics }}"></script>
+<script>
     window.dataLayer = window.dataLayer || [];
     function gtag() {
       dataLayer.push(arguments);
@@ -32,15 +30,32 @@
     gtag("js", new Date());
 
     gtag("config", "{{ site.google_analytics }}");
-  </script>
+</script>
 {%- endif -%}
 {%- if page.url == '/archive/' -%}
-  <script src="/assets/js/search.min.js"></script>
-  <script>
+<script src="/assets/js/search.min.js"></script>
+<script>
     var sjs = SimpleJekyllSearch({
-      searchInput: document.getElementById('search-input'),
-      resultsContainer: document.getElementById('search-results'),
-      json: '/assets/search.json',
+        searchInput: document.getElementById('search-input'),
+        resultsContainer: document.getElementById('search-results'),
+        json: '/assets/search.json',
     });
-  </script>
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.3/angular.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-aria/1.8.3/angular-aria.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-animate/1.8.3/angular-animate.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-messages/1.8.3/angular-messages.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-material/1.2.5/angular-material.min.js"></script>
+
+<script>
+
+    let myApp = angular.module('myApp', ['ngMaterial', 'ngMessages'], function ($interpolateProvider) {
+        $interpolateProvider.startSymbol('[[');
+        $interpolateProvider.endSymbol(']]');
+    });
+
+
+</script>
+
 {%- endif -%}

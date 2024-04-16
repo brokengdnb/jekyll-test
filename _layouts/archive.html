@@ -9,48 +9,32 @@ layout: compress
 
 <body data-theme="{{ site.mode }}" class="notransition" >
 
-  <script>
+    <script>
     const body = document.body;
     const data = body.getAttribute("data-theme");
 
     const initTheme = (state) => {
-      if (state === "dark") {
+        if (state === "dark") {
         body.setAttribute("data-theme", "dark");
-      } else if (state === "light") {
+        } else if (state === "light") {
         body.removeAttribute("data-theme");
-      } else {
+        } else {
         localStorage.setItem("theme", data);
-      }
+        }
     };
  
     initTheme(localStorage.getItem("theme"));
     
     setTimeout(() => body.classList.remove("notransition"), 75);
 
-  </script>
+    </script>
 
-  {% include navbar.html %}
-  <div class="wrapper">
+    {% include navbar.html %}
+    <div class="wrapper">
     <main class="page-content" aria-label="Content" >
-      {% include anchor_headings.html html=content anchorClass="anchor-head" beforeHeading=true h_min=4 h_max=4 %}
+        {% include anchor_headings.html html=content anchorClass="anchor-head" beforeHeading=true h_min=4 h_max=4 %}
     </main>
     {% include footer.html %}
-  </div>
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.3/angular.min.js"></script>
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-aria/1.8.3/angular-aria.min.js"></script>
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-animate/1.8.3/angular-animate.min.js"></script>
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-messages/1.8.3/angular-messages.min.js"></script>
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-material/1.2.5/angular-material.min.js"></script>
-
-  <script>
-
-      let myApp = angular.module('myApp', ['ngMaterial', 'ngMessages'], function($interpolateProvider) {
-      $interpolateProvider.startSymbol('[[');
-      $interpolateProvider.endSymbol(']]');
-    });
-
-
-  </script>
+    </div>
 </body>
-
 </html>
