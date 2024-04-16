@@ -25,9 +25,12 @@
 <script type="text/javascript" src="/assets/js/angular-messages.min.js"></script>
 <script type="text/javascript" src="/assets/js/angular-material.min.js"></script>
 
+<script type="text/javascript" src="/assets/js/moment.min.js"></script>
+<script type="text/javascript" src="/assets/js/angular-moment.min.js"></script>
+
 <script>
 
-    let myApp = angular.module('myApp', ['ngMaterial', 'ngMessages'], function ($interpolateProvider) {
+    let myApp = angular.module('myApp', ['ngMaterial', 'ngMessages', 'angularMoment'], function ($interpolateProvider) {
         $interpolateProvider.startSymbol('[[');
         $interpolateProvider.endSymbol(']]');
     });
