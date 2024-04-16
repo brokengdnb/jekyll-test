@@ -49,7 +49,7 @@ layout: compress
           {% if page.date %}
           <div class="post-meta">
               <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
-                  [[ {{ page.date }} | amDifference  ]]
+                  [[ parsedDateTime ]]
               </time>
             <span hidden itemprop="author" itemscope itemtype="https://schema.org/Person">
               <span itemprop="name">{{ site.author.name }}</span>
@@ -92,7 +92,7 @@ layout: compress
 
     <script>
         myApp.controller('FooCtrl', ['$scope', 'moment', function ($scope, moment) {
-             $scope.exampleDate = moment().hour(8).minute(0).second(0).toDate();
+            $scope.parsedDateTime = moment({{page.date}}).fromNow();
          }]);
 
     </script>
