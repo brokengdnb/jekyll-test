@@ -29,25 +29,7 @@
       : area.classList.remove("blurry");
   });
 
-  const filterRepo = function (repos) {
-      var result = repos.filter(function (el) {
-          return el.name === "jekyll-test";
-      })
-      return result;
 
-  }
-// footer dyna magic
-    let xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function () {
-        if (this.readyState == 4 && this.status == 200) {
-            let repos = JSON.parse(this.responseText);
-            console.log(filterRepo(repos)[0])
-            document.getElementById('licenseInfo').innerText = "under " + filterRepo(repos)[0].license.name;
-            document.getElementById('buildInfo').innerText = "build at " + new Date(filterRepo(repos)[0].pushed_at).toLocaleString();
-        }
-    };
-    xhttp.open("GET", "https://api.github.com/users/brokengdnb/repos", true);
-    xhttp.send();
 
 
 })();
