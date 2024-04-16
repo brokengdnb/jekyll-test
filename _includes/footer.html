@@ -1,7 +1,9 @@
 <footer class="footer" data-ng-controller="footerCtrl">
     <small class="footer_copyright">
         <br /><span id="buildInfo"></span>
-        <br /><span id="licenseInfo"></span>
+        <br /><span id="licenseInfo"></span><br />
+        [[ buildAt ]]<br />
+        [[ license ]]
     </small>
     <span class="footer_item">&copy; {{ site.time | date: "%Y" }}</span>
     <a class="menu-link rss" href="/feed.xml" style="margin-left: 8px;margin-right:8px">
@@ -39,9 +41,12 @@
     myApp.controller('footerCtrl', ['$scope', 'moment', '$http', function ($scope, moment, $http) {
         let repoData = $http.get('https://api.github.com/users/brokengdnb/repos', {}).
             then(function (response) {
-                console.log(response);
-            }, function (response) {
-                console.log(response);
+                let repo = response.data.filter(el => el.name === "jekyll-test")[0];
+                console.log(repo);
+                $scope.buildAt = moment(repo.pushed_at).fromNow();
+                $scope.license = repo.license.name;
+            }, function (error) {
+                console.log(error);
             });
     }]);
 </script>
