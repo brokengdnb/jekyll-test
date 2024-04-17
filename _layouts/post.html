@@ -53,15 +53,12 @@ layout: compress
             <span hidden itemprop="mainEntityOfPage">{{ page.excerpt }}</span>
 
             {% if page.tags and page.tags != empty %}
-            <div class="tags">
+            <md-chips>
               {% assign tags = page.tags %}
-              <span itemprop="keywords">
               {% for tag in tags %}
-              <a class="tag"
-                 href="/tags/#{{tag | downcase | slugify}}">{{tag | upcase }}</a>{% unless forloop.last %},{% endunless %}
+                <md-chip>{{ tag | upcase}}</md-chip>
               {% endfor %}
-            </span>
-            </div>
+            </md-chips>
             {% endif %}
 
           </div>

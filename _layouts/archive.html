@@ -43,6 +43,11 @@ layout: compress
             angular.element(function () {
                 document.getElementById("magic").classList.remove("angular-loaded");
             });
+            let element = document.getElementById("search-input");
+
+            $scope.tagClick = function(data) {
+                element.setAttribute('value', data);
+            };
         }]);
     </script>
 </body>
