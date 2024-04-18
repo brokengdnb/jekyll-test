@@ -322,7 +322,7 @@
 
 @keyframes glitchTop {
     2%,64% {
-        transform: translate(2px,-2px);
+        transform: translate(12px,-2px);
     }
 
     4%,60% {
@@ -335,14 +335,14 @@
 }
 
 .error-div:after {
-    animation: glitchBotom 1.5s linear infinite;
+    animation: glitchBotom 3s linear infinite;
     clip-path: polygon(0 67%, 100% 67%, 100% 100%, 0 100%);
     -webkit-clip-path: polygon(0 67%, 100% 67%, 100% 100%, 0 100%);
 }
 
 @keyframes glitchBotom {
     2%,64% {
-        transform: translate(-2px,0);
+        transform: translate(-12px,0);
     }
 
     4%,60% {
