@@ -33,9 +33,11 @@ layout: compress
 
     {% include navbar.html %}
     <div class="wrapper error-layout-vertical">
-         <main aria-label="Content" class="error-layout">
-             <div title="404" class="error-div">404</div>
-      </main>
+        <main aria-label="Content" class="error-layout">
+            <div title="404" class="error-div">404</div>
+            <p class="phrase">😕 Seems you are lost</p>
+            <a class="solution" href="{{ site.url }}">back home</a>
+        </main>
         {% include footer.html %}
     </div>
 
