@@ -7,7 +7,7 @@ layout: compress
 
 {% include header.html %}
 
-<body data-theme="{{ site.mode }}" class="notransition">
+<body data-theme="{{ site.mode }}" class="notransition" data-ng-controller="errorCtrl">
 
     <script>
         const body = document.body;
@@ -29,11 +29,11 @@ layout: compress
     </script>
 
 
-   
+
 
     {% include navbar.html %}
-    <div class="wrapper error-layout-vertical" layou-fill="" layout="column"  layout-align="space-around center">
-        <main aria-label="Content" class="error-layout">
+    <div layou-fill="" layout="column" layout-align="space-between center">
+        <main aria-label="Content" class="error-layout" layou-fill="">
             <div title="404" class="error-div">404</div>
         </main>
         <div class="not-found">
@@ -45,6 +45,12 @@ layout: compress
 
         {% include footer.html %}
     </div>
+
+    <script>
+        myApp.controller('errorCtrl', ['$scope', function ($scope) {
+            
+        }])
+    </script>
 
 </body>
 
