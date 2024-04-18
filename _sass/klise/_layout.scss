@@ -265,16 +265,6 @@
 }
 
 
-.error-layout-vertical {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: nowrap;
-    justify-content: space-between;
-    align-items: center;
-    align-content: center;
-    height: 120px;
-}
-
 @import url('https://fonts.googleapis.com/css?family=Fira+Mono:400');
 
 .error-layout {
@@ -398,7 +388,6 @@
   display: flex;
   justify-content: center;
   flex-direction: column;
-  height: 75vh;
   .title {
     font-size: 5em;
     font-weight: $bold-weight;
