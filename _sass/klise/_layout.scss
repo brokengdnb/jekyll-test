@@ -264,16 +264,27 @@
   }
 }
 
+
+.error-layout-vertical {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    align-content: center;
+    height: 120px;
+}
+
+@import url('https://fonts.googleapis.com/css?family=Fira+Mono:400');
+
 .error-layout {
     display: flex;
-    width: 100vw;
-    height: 100vh;
     align-items: center;
     justify-content: center;
     margin: 0;
     background: #fff;
     color: #000;
-    font-size: 96px;
+    font-size: 200px;
     font-family: 'Fira Mono', monospace;
     letter-spacing: -7px;
 }
