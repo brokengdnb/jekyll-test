@@ -264,40 +264,122 @@
   }
 }
 
+.error-layout {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    background: #fff;
+    color: #000;
+    font-size: 96px;
+    font-family: 'Fira Mono', monospace;
+    letter-spacing: -7px;
+}
+
+.error-div {
+    animation: glitch 1s linear infinite;
+}
+
+@keyframes glitch {
+    2%,64% {
+        transform: translate(2px,0) skew(0deg);
+    }
+
+    4%,60% {
+        transform: translate(-2px,0) skew(0deg);
+    }
+
+    62% {
+        transform: translate(0,0) skew(5deg);
+    }
+}
+
+.error-div:before,
+.error-div:after {
+    content: attr(title);
+    position: absolute;
+    left: 0;
+}
+
+.error-div:before {
+    animation: glitchTop 1s linear infinite;
+    clip-path: polygon(0 0, 100% 0, 100% 33%, 0 33%);
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 33%, 0 33%);
+}
+
+@keyframes glitchTop {
+    2%,64% {
+        transform: translate(2px,-2px);
+    }
+
+    4%,60% {
+        transform: translate(-2px,2px);
+    }
+
+    62% {
+        transform: translate(13px,-1px) skew(-13deg);
+    }
+}
+
+.error-div:after {
+    animation: glitchBotom 1.5s linear infinite;
+    clip-path: polygon(0 67%, 100% 67%, 100% 100%, 0 100%);
+    -webkit-clip-path: polygon(0 67%, 100% 67%, 100% 100%, 0 100%);
+}
+
+@keyframes glitchBotom {
+    2%,64% {
+        transform: translate(-2px,0);
+    }
+
+    4%,60% {
+        transform: translate(-2px,0);
+    }
+
+    62% {
+        transform: translate(-22px,5px) skew(21deg);
+    }
+}
+
 // Footer
 .footer {
-  margin-top: 8em;
-  margin-bottom: 1em;
-  text-align: center;
+    margin-top: 8em;
+    margin-bottom: 1em;
+    text-align: center;
 
-  @include media-query($on-mobile) {
-    margin-top: 3em;
-  }
-  span.footer_item {
-    color: $black;
-    opacity: 0.8;
-    font-size: $small-font-size;
-  }
-  a.footer_item {
-    color: $black;
-    opacity: 0.8;
-    text-decoration: none;
-
-    &:not(:last-child) {
-      margin-right: 10px;
-      &:hover {
-        opacity: 1;
-      }
+    @include media-query($on-mobile) {
+        margin-top: 3em;
     }
-  }
 
-  .footer_copyright {
-    font-size: $small-font-size - 1;
-    margin-top: 3px;
-    display: block;
-    color: $gray;
-    opacity: 0.8;
-  }
+    span.footer_item {
+        color: $black;
+        opacity: 0.8;
+        font-size: $small-font-size;
+    }
+
+    a.footer_item {
+        color: $black;
+        opacity: 0.8;
+        text-decoration: none;
+
+        &:not(:last-child) {
+            margin-right: 10px;
+
+            &:hover {
+                opacity: 1;
+            }
+        }
+    }
+
+    .footer_copyright {
+        font-size: $small-font-size - 1;
+        margin-top: 3px;
+        display: block;
+        color: $gray;
+        opacity: 0.8;
+    }
 }
 
 .not-found {
