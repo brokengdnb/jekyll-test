@@ -2,6 +2,10 @@
   url: /
   external: false
 
+- title: status
+  url: https://debase-status.fly.dev
+  external: true
+
 #- title: tags
 #  url: /tags/
 #  external: false
